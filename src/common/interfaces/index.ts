@@ -1,1 +1,1 @@
-export * from './skill.interface';
+export * from './ability.interface';

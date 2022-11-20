@@ -3,6 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ChampionsModule } from './modules/champions/champions.module';
+import { SkinsModule } from './modules/skins/skins.module';
 require('dotenv').config();
 
 @Module({
@@ -14,6 +15,7 @@ require('dotenv').config();
     //  'mongodb://localhost/champions_lol',
     //),
     ChampionsModule,
+    SkinsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

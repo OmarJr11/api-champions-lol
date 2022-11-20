@@ -1,6 +1,6 @@
 import { Transform, Type } from "class-transformer";
 import { IsNotEmpty, IsNumber, IsOptional, IsString, MaxLength, MinLength } from "class-validator";
-import { Skill } from "src/common/interfaces";
+import { Ability } from "src/common/interfaces";
 import { ObjectTransform } from "src/common/transforms/json-parse.transform";
 
 export class UpdateChampionDto {
@@ -53,5 +53,5 @@ export class UpdateChampionDto {
 
     @Transform(ObjectTransform)
     @IsOptional()
-    skills: Skill[];
+    Abilities: Ability[];
 }
