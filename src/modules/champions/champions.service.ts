@@ -1,7 +1,7 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Champion, ChampionDocument } from '../../schemas';
+import { Champion, ChampionDocument, Skin } from '../../schemas';
 import { CreateChampionDto } from './dto/create-champion.dto';
 import { UpdateChampionDto } from './dto/update-champion.dto';
 
@@ -84,6 +84,19 @@ export class ChampionsService {
         }
       );
     return await this.findOne(id);
+  }
+
+  /**
+   * Add skin to a champion
+   * @param {string} id 
+   * @param {} skin 
+   * @returns 
+   */
+  async addSkin(id: string, skin: Skin) {
+    let champion = await this.championModel.findById(id); 
+    champion.skins.push(skin); 
+    await champion.save(); 
+    return await this.championModel.findById(id);
   }
 
   /**

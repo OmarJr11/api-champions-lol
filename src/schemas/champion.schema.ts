@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
-import { Skill } from '../common/interfaces/skill.interface';
+import { Ability } from '../common/interfaces/ability.interface';
+import { Skin, SkinsSchema } from './skin.schema';
 
 export type ChampionDocument = HydratedDocument<Champion>;
 
@@ -37,6 +38,9 @@ export class Champion {
     modificationDate?: Date;
 
     @Prop() 
-    skills: Skill[];
+    abilities: Ability[];
+
+    @Prop([SkinsSchema]) 
+    skins: Skin[]; 
 }
 export const ChampionsSchema = SchemaFactory.createForClass(Champion);
